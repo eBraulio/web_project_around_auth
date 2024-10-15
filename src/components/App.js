@@ -30,7 +30,7 @@ function App() {
   ///////////
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentEmail, setCurrentEmail] = React.useState("");
-
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const navigate = useNavigate();
 
   const handleLogIn = () => {
@@ -43,10 +43,16 @@ function App() {
     navigate("/signin");
   };
 
+  const handleMenuButtonClick = () => {
+    console.log("Menu Mobile Funciona");
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   useEffect(() => {
     getUserInfo();
     getCards();
   }, []);
+
   ////////////////
 
   async function getCards() {
@@ -130,6 +136,10 @@ function App() {
       });
     }
   }
+
+  React.useEffect(() => {
+    handleTokenCheck();
+  }, []);
   //
 
   return (
@@ -156,41 +166,48 @@ function App() {
               />
 
               <Route element={<ProtectedRoute isLoggedIn={isLoggedIn} />}>
-                <Header
-                  onMenuClick={handleMenuButtonClick}
-                  isOpen={isMenuOpen}
-                  handleLogOut={handleLogOut}
-                />
-                <Main
-                  onEditProfileClick={handleEditProfileClick}
-                  onAddPlaceClick={handleAddPlaceClick}
-                  onEditAvatarClick={handleEditAvatarClick}
-                  onCardClick={handleCardClick}
-                  cards={cards}
-                  onCardLike={handleCardLike}
-                  onCardDelete={handleCardDelete}
-                />
-                <Footer />
-                <EditAvatarPopup
-                  isOpen={isEditAvatarPopupOpen}
-                  onClose={closeAllPopups}
-                  onUpdateAvatar={handleUpdateAvatar}
-                />
-                <EditProfilePopup
-                  isOpen={isEditProfilePopupOpen}
-                  onClose={closeAllPopups}
-                  onUpdateUser={handleUpdateUser}
-                />
-                <AddPlacePopup
-                  isOpen={isAddPlacePopupOpen}
-                  onClose={closeAllPopups}
-                  onAddPlace={handleAddPlace}
-                />
-                <ImagePopup
-                  isOpen={isImagePopupOpen}
-                  link={selectedCard.link}
-                  name={selectedCard.name}
-                  onClose={closeAllPopups}
+                <Route
+                  path="/*"
+                  element={
+                    <>
+                      <Header
+                        onMenuClick={handleMenuButtonClick}
+                        isOpen={isMenuOpen}
+                        handleLogOut={handleLogOut}
+                      />
+                      <Main
+                        onEditProfileClick={handleEditProfileClick}
+                        onAddPlaceClick={handleAddPlaceClick}
+                        onEditAvatarClick={handleEditAvatarClick}
+                        onCardClick={handleCardClick}
+                        cards={cards}
+                        onCardLike={handleCardLike}
+                        onCardDelete={handleCardDelete}
+                      />
+                      <Footer />
+                      <EditAvatarPopup
+                        isOpen={isEditAvatarPopupOpen}
+                        onClose={closeAllPopups}
+                        onUpdateAvatar={handleUpdateAvatar}
+                      />
+                      <EditProfilePopup
+                        isOpen={isEditProfilePopupOpen}
+                        onClose={closeAllPopups}
+                        onUpdateUser={handleUpdateUser}
+                      />
+                      <AddPlacePopup
+                        isOpen={isAddPlacePopupOpen}
+                        onClose={closeAllPopups}
+                        onAddPlace={handleAddPlace}
+                      />
+                      <ImagePopup
+                        isOpen={isImagePopupOpen}
+                        link={selectedCard.link}
+                        name={selectedCard.name}
+                        onClose={closeAllPopups}
+                      />
+                    </>
+                  }
                 />
               </Route>
             </Routes>
