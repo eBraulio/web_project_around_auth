@@ -1,4 +1,7 @@
 .login {
+  background-color: #000;
+  margin: auto;
+  height: 100vh;
 }
 
 .login__header {
