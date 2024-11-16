@@ -10,7 +10,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 
-import Login from "./Login"; //n
+import Login from "./Login";
 import Register from "./Register";
 
 import { Route, Routes, useNavigate } from "react-router-dom";

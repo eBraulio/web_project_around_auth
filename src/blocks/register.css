@@ -1,5 +1,7 @@
 .register {
   background-color: #000;
+  margin: auto;
+  height: 100vh;
 }
 
 .register__header {

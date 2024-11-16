@@ -1,4 +1,6 @@
-export const BASE_URL = "https://tripleten.desarrollointerno.com";
+export const BASE_URL = "https://se-register-api.en.tripleten-services.com/v1";
+//export const BASE_URL = "https://tripleten.desarrollointerno.com";
+// export const BASE_URL = "https://around.nomoreparties.co/v1/web_es_11";
 
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
