@@ -35,7 +35,7 @@ function Register() {
       } else {
         setIsSuccess(true);
         setTimeout(() => {
-          navigate("/signin"); // Navega a la página de inicio de sesión después de un breve retraso
+          navigate("/signin"); 
         }, 10000);
       }
     });

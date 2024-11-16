@@ -9,10 +9,8 @@ import { CurrentUserContext } from "../context/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-
 import Login from "./Login";
 import Register from "./Register";
-
 import { Route, Routes, useNavigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import * as auth from "../utils/auth.js";
@@ -26,23 +24,18 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-
-  ///////////
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentEmail, setCurrentEmail] = React.useState("");
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const navigate = useNavigate();
-
   const handleLogIn = () => {
     setIsLoggedIn(true);
   };
-
   const handleLogOut = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
     navigate("/signin");
   };
-
   const handleMenuButtonClick = () => {
     console.log("Menu Mobile Funciona");
     setIsMenuOpen(!isMenuOpen);
@@ -53,19 +46,15 @@ function App() {
     getCards();
   }, []);
 
-  ////////////////
-
   async function getCards() {
     const response = await api.getInitialCards();
 
     setCards(response);
   }
-
   async function getUserInfo() {
     const response = await api.getUserInfo();
     setCurrentUser(response);
   }
-
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
@@ -79,49 +68,41 @@ function App() {
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
   }
-
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsImagePopupOpen(false);
   }
-
   function handleUpdateUser(userData) {
     api.editProfile(userData).then((newUser) => {
       setCurrentUser(newUser);
       closeAllPopups();
     });
   }
-
   function handleUpdateAvatar(link) {
     api.editAvatarProfile(link).then((newUser) => {
       setCurrentUser(newUser);
       closeAllPopups();
     });
   }
-
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
     });
   }
-
   function handleCardDelete(card) {
     api.deleteCard(card._id).then((newCard) => {
       setCards((state) => state.filter((c) => c._id !== card._id));
     });
   }
-
   function handleAddPlace(data) {
     api.addCard(data).then((card) => {
       setCards([card, ...cards]);
       closeAllPopups();
     });
   }
-
-  ///
   function handleTokenCheck() {
     if (localStorage.getItem("jwt")) {
       const token = localStorage.getItem("jwt");
@@ -140,7 +121,6 @@ function App() {
   React.useEffect(() => {
     handleTokenCheck();
   }, []);
-  //
 
   return (
     <div
