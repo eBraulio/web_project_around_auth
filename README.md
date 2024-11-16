@@ -7,25 +7,25 @@ Descripción
 
 \*La página tiene las siguientes funcionalidades:
 
--Crear rutas y redireccionar
--Crear nuevos componentes de React, para Login, Register, ProtectedRoute e InfoToolTip.
--Conectar la funcionalidad principal del sitio en el backend de TripleTen.
--Nuevos Endpoints: /singup y /singin
--Implementar la autenticación del usuario
--Implementar el almacenamiento local y la manipulación de tokens
--Analizar tu sitio con base en lo que ya sabes sobre seguridad
--Implementar diseño compartido en
+- Crear rutas y redireccionar
+- Crear nuevos componentes de React, para Login, Register, ProtectedRoute e InfoToolTip.
+- Conectar la funcionalidad principal del sitio en el backend de TripleTen.
+- Nuevos Endpoints: /singup y /singin
+- Implementar la autenticación del usuario
+- Implementar el almacenamiento local y la manipulación de tokens
+- Analizar tu sitio con base en lo que ya sabes sobre seguridad
+- Implementar diseño compartido en
 
 La página web esta diseñada con las siguientes tecnologías:
 
--Node.js
--Express.js
--Middlewares
--Eslit
--Routes/rutas
--Figma
--Github
+- Node.js
+- Express.js
+- Middlewares
+- Eslit
+- Routes/rutas
+- Figma
+- Github
 
 Trabajo a futuro:
 
--Implentar versión pafar móvil.
+- Implentar versión pafar móvil.
