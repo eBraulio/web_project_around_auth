@@ -14,7 +14,6 @@ Descripción
 - Implementar la autenticación del usuario
 - Implementar el almacenamiento local y la manipulación de tokens
 - Analizar tu sitio con base en lo que ya sabes sobre seguridad
-- Implementar diseño compartido en
 
 La página web esta diseñada con las siguientes tecnologías:
 

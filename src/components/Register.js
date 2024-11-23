@@ -35,7 +35,7 @@ function Register() {
       } else {
         setIsSuccess(true);
         setTimeout(() => {
-          navigate("/signin"); 
+          navigate("/signin");
         }, 10000);
       }
     });
@@ -77,6 +77,7 @@ function Register() {
             id="password"
             placeholder="Contraseña"
             required
+            minlength="8"
             type="password"
             value={password}
             name="password"
